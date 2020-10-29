@@ -26,7 +26,7 @@ public class SandBox {
         };
         
         for (int i=0; i<val.length; i++) {
-            System.out.println(Utils.dotAligned(8, 3, val[i]));
+            System.out.println(Utils.dotAligned(8, 2, val[i]));
         }  
     }
     
