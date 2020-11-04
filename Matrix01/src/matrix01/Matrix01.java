@@ -14,10 +14,26 @@ public class Matrix01 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Matrix m1 = new Matrix(3, 4);
+    public static void main(String[] args) throws MatrixException {
+        Matrix m1 = new Matrix(2, 2);
+        m1.setLC(1, 1,3);
+        m1.setLC(1, 2, 1);
+        m1.setLC(2, 1, 4);
+        m1.setLC(2, 2, 1);
+        
+        Matrix m2 = new Matrix(2, 2);
+        m2.setLC(1, 1,7);
+        m2.setLC(1, 2, -1);
+        m2.setLC(2, 1, 0);
+        m2.setLC(2, 2, 3);
+        
+        Matrix m3 = m1.add(m2);
+        
         m1.dump();
-
+        System.out.println("");
+        m2.dump();
+        System.out.println("");
+        m3.transpose().dump();
     }
     
 }
