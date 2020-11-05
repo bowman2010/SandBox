@@ -98,15 +98,34 @@ public class Matrix {
         return result;
     }
 
+    public double vectorProduct(double[] v1, double[] v2) {
+        int ln = v1.length;
+        double tot = 0;
+        
+        for (int i=0; i<ln; i++) {
+            tot+=v1[i]*v2[i];
+        }
+        return tot;
+    }
+    
     public Matrix multiply(Matrix mm) throws MatrixException {
-        throw new UnsupportedOperationException("Not supported yet."); 
-/*        if (this.nbColumns != mm.getNbLines())
+        Matrix result = null;
+        int n = this.getNbLines();
+        
+        if (n != mm.getNbColumns())
             throw new MatrixException("Incompatible sizes");
-
-        Matrix result = new Matrix(this.nbLines, mm.getNbColumns());
-
+        
+        result=new Matrix(this.getNbLines(), mm.getNbColumns());
+        
+        for (int li=1; li<=n; li++) {
+            double[] row = this.getLine(li);
+            for (int co=1; co<=n; co++) {
+                double[] col = mm.getColumn(co);
+                result.setLC(li, co, vectorProduct(row, col));
+                
+            }
+        }
         return result;
-*/
     }
     
     public double det() {
