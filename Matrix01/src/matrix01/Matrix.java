@@ -34,6 +34,17 @@ public class Matrix {
         }
     }
 
+    public Matrix transpose() {
+        Matrix result = new Matrix(this.nbColumns,this.nbLines);
+
+        for (int line=1; line<=this.nbLines; line++) {
+            for (int column=1; column<=this.nbColumns; column++) {
+                result.setLC( column,line,  this.getLC(line, column));
+            }
+        }
+        return result;
+    }
+
     public Matrix add(Matrix m) throws MatrixException {
         int nbl = m.getNbLines();
         int nbc = m.getNbColumns();
@@ -96,17 +107,6 @@ public class Matrix {
 
         return result;
 */
-    }
-
-    public Matrix transpose() {
-        Matrix result = new Matrix(this.nbColumns,this.nbLines);
-
-        for (int line=1; line<=this.nbLines; line++) {
-            for (int column=1; column<=this.nbColumns; column++) {
-                result.setLC( column,line,  this.getLC(line, column));
-            }
-        }
-        return result;
     }
     
     public double det() {
