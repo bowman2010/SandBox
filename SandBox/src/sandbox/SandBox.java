@@ -10,11 +10,24 @@ package sandbox;
  * @author bowman
  */
 public class SandBox {
+    
+    public static String frmtNumber(double n) {
+        String s = String.format("%5.8f", n);
+        StringBuilder sb=new StringBuilder(s);
+        int i = sb.length()-1;
+        while (sb.charAt(i)=='0') {
+            sb.replace(i, i+1, " ");
+            i--;
+        }
+        if (sb.charAt(i)=='.')
+            sb.replace(i, i+1, " ");
+            
+        return sb.toString();
+    }
 
     public static void main(String[] args) {
-            String s="end";
-            System.out.println(s.matches("\\^end\\s*\\z"));
-
+        double dblTotal = 2;
+        System.out.println(frmtNumber(dblTotal) ); 
     }
     
 }

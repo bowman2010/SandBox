@@ -15,13 +15,8 @@ public class Pgcd_Euclide {
         int n=a;
         if (a<b) { a=b; b=n; }
         
-        System.out.println("a="+a);
-        System.out.println("b="+b);
         int quotien = Math.floorDiv(a, b);
         int reste = a%b;
-        System.out.println("quotient ="+quotien);
-        System.out.println("reste    ="+reste);
-        System.out.println("-------------------------");
         if (reste!=0) return pgcd(reste,b);
         return b;
     }
